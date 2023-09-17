@@ -61,30 +61,11 @@ export default function Design () {
 
             <p><u>How about some underlining?</u></p>
 
-            <p><strike>I can&#39;t imagine why you&#39;d use strikethrough on a website, but here you go.</strike></p>
-
             <p>Here&#39;s and example of <sub>subscript</sub></p>
 
             <p>Or how about some <sup>superscript</sup>?</p>
 
             <p>And last but certainly not least, here&#39;s what a <a href="http://www.google.com" target="_blank">hyperlink</a> looks like on this site.</p>
-
-            <table border="1" cellpadding="1" cellspacing="1">
-                <tbody>
-                    <tr>
-                        <td>odd - 1</td>
-                        <td>odd - 2</td>
-                    </tr>
-                    <tr>
-                        <td>even - 1</td>
-                        <td>even - 2</td>
-                    </tr>
-                    <tr>
-                        <td>odd - 3</td>
-                        <td>odd - 4</td>
-                    </tr>
-                </tbody>
-            </table>
         </main>
     )
 }
