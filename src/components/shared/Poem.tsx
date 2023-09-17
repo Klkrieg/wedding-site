@@ -7,10 +7,10 @@ export const Poem = () => {
                 I<br/>
                 Do not<br/>
                 Want to step so quickly<br/>
-                Over a beautiful line on God's palm<br/>
-                As I move through the earth's<br/>
+                Over a beautiful line on God&apos;s palm<br/>
+                As I move through the earth&apos;s<br/>
                 Marketplace<br/>
-                'Today.<br/>
+                Today.<br/>
             </p>
             <p>
                 I do not want to touch any object in this world<br/>
@@ -27,7 +27,7 @@ export const Poem = () => {
             <p>
                 I do not<br/>
                 Want to step so quickly<br/>
-                Over this sacred place on God's body<br/>
+                Over this sacred place on God&apos;s body<br/>
                 That is right beneath your<br/>
                 Own foot<br/>
             </p>
