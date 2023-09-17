@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import { Poem } from '@/components/shared/Poem';
 import { TapedImage } from '@/components/shared/TapedImage';
+import { AirtableForm } from '@/components/shared/AirtableForm';
 
 export default function Home() {
   return (
@@ -39,6 +40,9 @@ export default function Home() {
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
             loading="lazy"></iframe>
+        </div>
+        <div className={styles["airtable-form"]}>
+          <AirtableForm/>
         </div>
         <div className={styles.poemCont}>
           <Poem/>
