@@ -13,6 +13,7 @@ export default function Home() {
             autoPlay
             muted
             loop
+            playsInline
             src="https://res.cloudinary.com/dcnk7dp9q/video/upload/f_auto/v1694899241/heheourfaces_fomeht.mp4">
           </video>
         </div>
