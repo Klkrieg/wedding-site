@@ -1,94 +1,47 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import styles from './page.module.css';
+import { Poem } from '@/components/shared/Poem';
+import { TapedImage } from '@/components/shared/TapedImage';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <header className={styles.header}>
+        <div className={styles.videoCont}>
+          <video 
+            className={styles.video}
+            autoPlay
+            muted
+            loop
+            src="https://res.cloudinary.com/dcnk7dp9q/video/upload/v1694899241/heheourfaces_fomeht.mp4">
+          </video>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className={styles.introText}>
+          <h1 className={styles.title}>april + karson</h1>
+          <div className={styles.savethedate}>
+            <h2 className={styles["introText--title"]}>Save the Date!</h2>
+            <h4 className={styles["introText--date"]}>10.12.2024</h4>
+          </div>
+        </div>
+      </header>
+      <div className={styles.content}>
+        <div className={styles.introImg}>
+          <TapedImage src={"https://res.cloudinary.com/dcnk7dp9q/image/upload/v1694920179/IMG_0107_dip5yx.jpg"}/>
+        </div>
+        <div className={styles.spotifyWrapper}>
+          <h2 className={styles.spotifyWrapper__title}>Add to our Playlist of Love</h2>
+          <p className={styles.spotifyWrapper__description}>Have some songs that make you think about...?</p>
+          <iframe 
+            src="https://open.spotify.com/embed/playlist/6enWYDETPPn9NATys7KhuK?utm_source=generator" 
+            width="100%" 
+            height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy"></iframe>
+        </div>
+        <div className={styles.poemCont}>
+          <Poem/>
+        </div>
       </div>
     </main>
   )

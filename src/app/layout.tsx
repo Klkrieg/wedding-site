@@ -1,8 +1,12 @@
-import './globals.css'
+import './globals.css';
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Courier_Prime } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Courier_Prime({
+  weight: ['400',"700"],
+  subsets: ["latin"],
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
