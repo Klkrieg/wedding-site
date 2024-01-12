@@ -36,5 +36,5 @@ next-env.d.ts
 
 
 #ENV
-.env.*
+.env
 .env.local

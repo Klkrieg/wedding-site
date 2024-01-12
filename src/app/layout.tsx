@@ -1,7 +1,9 @@
+
 import './globals.css';
 import type { Metadata } from 'next'
 import { Courier_Prime } from 'next/font/google'
 
+import { GlobalContextProvider } from '@/contexts/global-content';
 const inter = Courier_Prime({
   weight: ['400',"700"],
   subsets: ["latin"],
@@ -19,8 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <GlobalContextProvider>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </GlobalContextProvider>
   )
 }

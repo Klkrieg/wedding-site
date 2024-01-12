@@ -38,6 +38,16 @@
   text-align: center;
 }
 
+.airtable-form {
+  min-height: 850px;
+  height: 850px;
+}
+
+.airtable-form iframe {
+  height: 850px;
+  overflow: visible;
+}
+
 .poem {
   text-align: center;
   margin-block: 20px;

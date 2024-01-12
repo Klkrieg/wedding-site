@@ -30,9 +30,16 @@ export default function Home() {
         <div className={styles.introImg}>
           <TapedImage src={"https://res.cloudinary.com/dcnk7dp9q/image/upload/v1694920179/IMG_0107_dip5yx.jpg"}/>
         </div>
+        
+        <div className={styles["airtable-form"]}>
+          <AirtableForm/>
+        </div>
+        <div className={styles.poemCont}>
+          <Poem/>
+        </div>
         <div className={styles.spotifyWrapper}>
           <h2 className={styles.spotifyWrapper__title}>Add to our Playlist of Love</h2>
-          <p className={styles.spotifyWrapper__description}>Have some songs that make you think about...?</p>
+          <p className={styles.spotifyWrapper__description}>Have some songs that make you think about us?</p>
           <iframe 
             src="https://open.spotify.com/embed/playlist/6enWYDETPPn9NATys7KhuK?utm_source=generator" 
             width="100%" 
@@ -40,12 +47,6 @@ export default function Home() {
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
             loading="lazy"></iframe>
-        </div>
-        <div className={styles["airtable-form"]}>
-          <AirtableForm/>
-        </div>
-        <div className={styles.poemCont}>
-          <Poem/>
         </div>
       </div>
     </main>
