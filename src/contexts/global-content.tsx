@@ -56,7 +56,7 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
 
     const handleFormReset = () => {
         setFormSubmitted(false);
-        localStorage.setItem(storageKey, JSON.stringify(formSubmitted));
+        localStorage.setItem(storageKey, JSON.stringify(false));
     }
 
     return (
