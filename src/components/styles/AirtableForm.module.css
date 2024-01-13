@@ -1,0 +1,6 @@
+.form {
+    display: grid;
+    gap: 20px;
+    width: 60%;
+    margin-inline: auto;
+}

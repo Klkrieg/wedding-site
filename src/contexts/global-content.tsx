@@ -1,5 +1,18 @@
 'use client'
 import { createContext, useEffect, useState } from "react";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#0F3D1F',
+        },
+    },
+    typography : {
+        fontFamily : "Courier Prime,"
+    }
+});
 
 type ContextType = {
 	[prop: string]: any;
@@ -20,11 +33,14 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
 
     useEffect(() => {
 		let isSubmitted = localStorage.getItem(storageKey);
-        console.log(isSubmitted);
+
 		// populate the favorites if there are any in local storage
-		if (isSubmitted) {
+		if (isSubmitted === "true") {
 			setFormSubmitted(true);
-		}
+            localStorage.setItem(storageKey, JSON.stringify(true))
+		} else {
+            setFormSubmitted(false);
+        }
 	}, []);
 
     const handleAirtableFormSubmit = async (fields: AirtableRecordType) => {
@@ -47,7 +63,7 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
             .then(response => response.json())
             .then(data => {
                 console.log('Record created successfully:', data);
-                localStorage.setItem(storageKey, JSON.stringify(formSubmitted));
+                localStorage.setItem(storageKey, JSON.stringify(true));
             })
             .catch(error => {
                 console.error('Error creating record:', error);
@@ -67,7 +83,9 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
                 handleFormReset
             }}
         >
-            {children}
+            <ThemeProvider theme={theme}>
+                {children}
+            </ThemeProvider>
         </GlobalContext.Provider>
     )
 }

@@ -1,6 +1,9 @@
 'use client'
 import { GlobalContext } from "@/contexts/global-content";
 import { useContext, useState } from "react"
+import styles from '../styles/AirtableForm.module.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 export const AirtableForm = () => {
     const context = useContext(GlobalContext);
     const handleFormSubmit = (e: any) => {
@@ -25,19 +28,13 @@ export const AirtableForm = () => {
                 )
             : 
                 (
-                    <form action='' onSubmit={(e) => {
+                    <form className={styles.form} action='' onSubmit={(e) => {
                         e.preventDefault();
                         handleFormSubmit(e);
                     }}>
-                        <label>
-                            Name:
-                            <input type="text" id="name" placeholder="Brian Eno"/>
-                        </label>
-                        <label>
-                            Address:
-                            <input type="text" id="address"/>
-                        </label>
-                        <button type="submit">Submit</button>
+                        <TextField id="" label="Name" variant="standard" placeholder="Brian Eno"/>
+                        <TextField id="address" label="Address" variant="standard" placeholder=""  />
+                        <Button variant='contained' type="submit">Submit</Button>
                     </form>
                 )
             }
