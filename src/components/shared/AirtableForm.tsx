@@ -28,7 +28,7 @@ export const AirtableForm = () => {
             {context.formSubmitted && !context.formError ? 
                 (
                     <div className={styles.wrapper}>
-                        <h3>Looks like you've already given us your info!</h3>
+                        <h3>{"Looks like you've already given us your info!"}</h3>
                         <h3>Want to add another entry?</h3>
                         <Button onClick={context.handleFormReset} variant="outlined" color="secondary">Reset</Button>
                     </div>
