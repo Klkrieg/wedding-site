@@ -41,8 +41,8 @@ export const AirtableForm = () => {
                     }}>
                         <TextField id="name" label="your name" variant="standard" required color="secondary"/>
                         <TextField id="address" label="address" variant="standard" required color="primary" />
-                        <TextField id="song" label='a song that makes you think of us' color="secondary" variant="standard" placeholder={`"Song" - Artist`}/>
-                        <Button variant='outlined' type="submit" >submit</Button>
+                        <TextField id="song" label="a song that makes you think of us" color="secondary" variant="standard" placeholder={`"Song" - Artist`}/>
+                        <Button variant="outlined" type="submit" >submit</Button>
                     </form>
                 )
             }
