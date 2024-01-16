@@ -9,36 +9,44 @@ export const AirtableForm = () => {
     const handleFormSubmit = (e: any) => {
         let name = e.target.name.value;
         let address = e.target.address.value;
+        let song = e.target.song.value
         let fields = {
             "Guest" : name,
-            "Address" : address
+            "Address" : address,
+            "Song" : song
         }
 
         context.handleAirtableFormSubmit(fields);
     }
 
     return (
-        <>
-            {context.formSubmitted ? 
+        <div className={styles['form-wrapper']} >
+            <div className={styles.header}>
+                <h2 className={styles.title}>Where can we send your invitation?</h2>
+            </div>
+            {context.formError && <h3>Something went wrong. :( \nPlease try again, or reach out to us directly!</h3>}
+            {context.formSubmitted && !context.formError ? 
                 (
-                    <div>
+                    <div className={styles.wrapper}>
+                        <h3>Looks like you've already given us your info!</h3>
                         <h3>Want to add another entry?</h3>
-                        <button onClick={context.handleFormReset}>Reset</button>
+                        <Button onClick={context.handleFormReset} variant="outlined" color="secondary">Reset</Button>
                     </div>
                 )
             : 
                 (
-                    <form className={styles.form} action='' onSubmit={(e) => {
+                    <form action='' className={styles.form} onSubmit={(e) => {
                         e.preventDefault();
                         handleFormSubmit(e);
                     }}>
-                        <TextField id="" label="Name" variant="standard" placeholder="Brian Eno"/>
-                        <TextField id="address" label="Address" variant="standard" placeholder=""  />
-                        <Button variant='contained' type="submit">Submit</Button>
+                        <TextField id="name" label="your name" variant="standard" required color="secondary"/>
+                        <TextField id="address" label="address" variant="standard" required color="primary" />
+                        <TextField id="song" label='a song that makes you think of us' color="secondary" variant="standard" placeholder='"Song" - Artist'/>
+                        <Button variant='outlined' type="submit" >submit</Button>
                     </form>
                 )
             }
-        </>
+        </div>
         // <iframe 
         //     className="airtable-embed" 
         //     src="https://airtable.com/embed/appaC8SQQQvkK8clD/shrVzP2jz8RkcvZjc?backgroundColor=green" 

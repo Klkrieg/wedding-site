@@ -6,8 +6,13 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#0F3D1F',
+            main: '#A33407',
+            light: '#D6F49D',
+            dark: '#0F3D1F'
         },
+        secondary: {
+            main: '#096ab3',
+        }
     },
     typography : {
         fontFamily : "Courier Prime,"
@@ -29,6 +34,7 @@ export const GlobalContext = createContext<ContextType>({
 
 export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
     const [formSubmitted, setFormSubmitted] = useState(false); 
+    const [formError, setFormError] = useState(false);
     const storageKey = "formSubmitted";
 
     useEffect(() => {
@@ -62,11 +68,11 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Record created successfully:', data);
                 localStorage.setItem(storageKey, JSON.stringify(true));
             })
             .catch(error => {
-                console.error('Error creating record:', error);
+                console.log(error);
+                setFormError(true);
             });
     }
 

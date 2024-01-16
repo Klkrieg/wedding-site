@@ -1,6 +1,23 @@
+.form-wrapper {
+    display: grid;
+    gap: 20px;
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.875rem;
+}
+
 .form {
     display: grid;
     gap: 20px;
-    width: 60%;
-    margin-inline: auto;
+}
+
+@media screen and (min-width: 64em) {
+    .form-wrapper {
+        grid-column: 8/13;
+        align-self: middle;
+    }
 }

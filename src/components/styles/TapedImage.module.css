@@ -27,3 +27,9 @@
     bottom: 0;
     translate: -50% 50%;
 }
+
+@media screen and (min-width: 48em) {
+    .taped-image .img {
+        width: 100%;
+    }
+}

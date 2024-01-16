@@ -12,6 +12,7 @@
   width: 100%;
   max-width: var(--max-width);
   object-fit: cover;
+  max-height: calc(100vh - 280px);
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
@@ -38,27 +39,45 @@
   text-align: center;
 }
 
-.airtable-form {
-  min-height: 850px;
-  height: 850px;
+.poemCont {
+  margin-block-end: 60px;
 }
 
-.airtable-form iframe {
-  height: 850px;
-  overflow: visible;
+.poemCont .frame {
+  box-shadow: 0 0 10px rgba(61, 61, 61, 0.42);
+  max-width: 550px;
+  width: 80%;
+  margin-inline: auto;
 }
 
 .poem {
   text-align: center;
-  margin-block: 20px;
+  padding: 60px 40px;
+  margin-inline: auto;
+  border: solid 20px var(--dark-gray);
+  background-color: rgb(233, 226, 226);
+  box-shadow: inset 0 0 10px rgba(61, 61, 61, 0.42);
+}
+
+.poem .poemInner {
+  width: max-content;
+  margin-inline: auto;
+  background:rgba(9, 105, 179, 0.09);
+  padding: 20px 30px ;
+  box-shadow: inset 0 0 10px rgba(61, 61, 61, 0.42);
 }
 
 .poem p {
+  text-transform: none !important;
   margin-block-end: 20px;
 }
 
+.spotifyWrapper {
+  text-align: center;
+}
 
-@media screen and (min-width: 48em) {
+
+@media screen and (min-width: 64em) {
   .main {
     padding: 40px 20px;
   }
@@ -71,6 +90,7 @@
   .content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    align-items: center;
     gap: 30px;
   }
 
@@ -82,14 +102,17 @@
     width: 100%;
     margin-block: 20px;
     position: relative;
+    grid-column: 1 / 7;
   }
 
-  .introImg img {
-    width: 100%;
-    height: auto;
+  .poemCont {
+    grid-column: 1 / -1;
   }
 
   .spotifyWrapper {
     grid-column: 8 / span 5;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
   }
 }
