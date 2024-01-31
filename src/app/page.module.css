@@ -1,16 +1,17 @@
 
 .header {
-  height: calc(100vh * 1px);
-  display: flex;
+  height: 100vh;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 60px;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
   padding-block-end: 80px;
   box-sizing: border-box;
 }
 
 .video {
-  width: 100%;
   height: auto;
   max-width: var(--max-width);
   object-fit: cover;
@@ -28,7 +29,7 @@
 }
 
 .introText {
-
+  place-self: center;
 }
 
 .introText--date {
@@ -69,9 +70,13 @@
     padding: 40px 20px;
   }
 
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .video {
     margin-inline: auto;
-    aspect-ratio: 16/9;
   }
 
   .content {
