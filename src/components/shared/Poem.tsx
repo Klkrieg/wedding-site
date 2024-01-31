@@ -40,26 +40,6 @@ export const Poem = () => {
                         Today.<br/>
                     </p>
                     <p className={styles.author}> -Hafiz</p> */}
-                    <p>
-                        I dwell in Possibility –<br />
-                        A fairer House than Prose –<br />
-                        More numerous of Windows –<br />
-                        Superior – for Doors –<br />
-                    </p>
-                    <p>
-                        Of Chambers as the Cedars – <br />
-                        Impregnable of eye – <br />
-                        And for an everlasting Roof <br />
-                        The Gambrels of the Sky – <br />
-                    </p>
-
-                    <p>
-                        Of Visitors – the fairest – <br />
-                        For Occupation – This – <br />
-                        The spreading wide my narrow Hands <br />
-                        To gather Paradise – <br />
-                    </p>
-                    <p className={styles.author}> -Emily Dickinson</p>
                 </div>
             </div>
         </div>
