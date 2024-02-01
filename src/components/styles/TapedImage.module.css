@@ -4,16 +4,15 @@
 }
 
 .taped-image .img {
-    aspect-ratio: 2/3;
     display: block;
     width: calc(100% - 100px);
     height: auto;
     margin-inline: auto;
-    margin-block-end: 40px;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
 }
 
 .taped-image .first {
+    width: 80px;
     position: absolute;
     left: 50%;
     top: 0;
@@ -21,6 +20,7 @@
 }
 
 .taped-image .last {
+    width: 80px;
     position: absolute;
     left: 50%;
     top: auto;
@@ -28,8 +28,49 @@
     translate: -50% 50%;
 }
 
-@media screen and (min-width: 48em) {
+.taped-image.bottom .first,
+.taped-image.right .first,
+.taped-image.top .last,
+.taped-image.left .last {
+    display: none;
+}
+
+.taped-image:is(.left, .left-right, .right) .first,
+.taped-image:is(.left, .left-right, .right) .last {
+    top: 50%;
+    bottom: auto;
+    rotate: 90deg;
+}
+
+.taped-image:is(.left, .left-right, .right) .first {
+    left: 50px;
+    translate: -50% -50%;
+}
+
+.taped-image:is(.left, .left-right, .right) .last {
+    right: 50px;
+    left: auto;
+    translate: 50% -50%;
+}
+
+.taped-image.none :is(.last,.first) {
+    display: none;
+}
+
+@media screen and (min-width: 64em) {
     .taped-image .img {
         width: 100%;
+    }
+
+    .taped-image :is(.first, .last) img {
+        width: 80px !important;
+    }
+
+    .taped-image:is(.left, .left-right, .right) .first {
+        left: 0;
+    }
+    
+    .taped-image:is(.left, .left-right, .right) .last {
+        right: 0;
     }
 }

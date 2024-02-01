@@ -1,14 +1,15 @@
 :root {
   --max-width: 1000px;
   --border-radius: 12px;
-  --dark-green: #0F3D1F;
-  --light-green: #2c6d42;
+  --dark-green: #62662f;
+  --light-green: #babf62;
   --dark-gray: #3d3d3d;
   --green-d6: #D6F49D;
-  --orange-d4: #D4916D;
-  --orange-d3: #D3713C;
-  --brown-a3: #A33407;
-  --blue-09: #096ab3;
+  --orange-ce: #cea077;
+  --orange-c2: #c2642a;
+  --red-83: #883808;
+  --blue-8a: #8aafe7;
+  --blue-3d: #3d6cbc;
 
   --padding-default: 30px;
 
@@ -32,6 +33,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
   color: var(--dark-green);
   margin-block-end: 12px;
+  text-transform: lowercase !important;
 }
 
 :is(h1,h2,h3,h4,h5,h6,p,button) {
@@ -48,14 +50,21 @@ h2 {
 }
 
 p {
-  color: var(--dark-gray);
+  color: var(--dark-green);
 }
 
 a {
-  color: var(--brown-a3);
+  color: var(--red-83);
 }
 
 main {
   max-width: var(--max-width);
   margin-inline: auto;
+}
+
+
+@media screen and (min-width: 64em) {
+  p, input, button {
+    font-size: 1.125rem;
+  }
 }

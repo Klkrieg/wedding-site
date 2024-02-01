@@ -25,18 +25,51 @@
   padding-inline: 20px;
 }
 
+.content-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-inline: 40px;
+  margin-block-end: 100px;
+}
+
+.content-bottom img {
+  height: auto;
+  width: 100%;
+}
+
 .introText {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.introText--title {
+  text-transform: lowercase;
 }
 
 .introText--date {
   font-size: 30px;
   font-weight: 400;
   letter-spacing: 1.2px;
+  margin-block-end: 0;
   text-align: center;
+}
+
+.welcome {
+  text-align: center;
+  margin-block: 80px;
+  margin-inline: auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+.welcome p {
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
 
 .poemCont {
@@ -64,22 +97,72 @@
   text-align: center;
 }
 
+.spotifyWrapper h2 {
+  margin-block-end: 20px;
+}
+
+.spotifyWrapper p {
+  margin-block-end: 30px;
+}
+
+@media screen and (min-width: 40em) {
+}
+
 
 @media screen and (min-width: 64em) {
   .main {
     padding: 40px 20px;
   }
-
+  
   .video {
     margin-inline: auto;
     aspect-ratio: 16/9;
   }
-
+  
   .content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 30px;
+    padding: 0;
+  }
+  
+  .content-top {
+    width: 100%;
+    grid-column: span 1;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    align-items: start;
-    gap: 30px;
+  }
+  
+  .content-bottom {
+    margin-inline: auto;
+    row-gap: 0;
+    column-gap: 60px;
+  }
+  
+  .first-image {
+    grid-column: 1 / span 5;
+    grid-row: 1 / 7;
+    margin-inline-start: 40px;
+  }
+
+  .content-bottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .welcome {
+    grid-column:  6 / span 7;
+    grid-row: 1 / 4;
+  }
+
+  .second-image {
+    grid-column: 7 / span 5;
+    grid-row: 4 / 8;
+  }
+
+  .formWrapper {
+    grid-column: 1 / span 6;
   }
 
   .introText {
@@ -98,9 +181,10 @@
   }
 
   .spotifyWrapper {
-    grid-column: 8 / span 5;
+    grid-column: 1 / span 12;
     align-items: center;
     justify-items: center;
     text-align: center;
+    margin-inline: auto;
   }
 }

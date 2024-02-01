@@ -2,12 +2,20 @@ import Image from "next/image";
 import styles from "../styles/TapedImage.module.css";
 
 type Props = {
-    src: string
+    src: string,
+    variant: string,
+    width: number,
+    height: number
 }
 
-export const TapedImage = ({src}: Props) => {
+export const TapedImage = ({src, variant, width, height}: Props) => {
+
+    let classes = [
+        styles['taped-image'],
+        styles[variant],
+    ]
     return (
-        <div className={styles["taped-image"]}>
+        <div className={classes.join(' ')}>
             <Image
                 className={styles.first}
                 src={"/tape-ginko.png"}
@@ -19,8 +27,8 @@ export const TapedImage = ({src}: Props) => {
                 className={styles.img}
                 src={src}
                 alt={'Cedar Branch'}
-                height={300} 
-                width={200}
+                height={height} 
+                width={width}
             />
             <Image
                 className={styles.last}
