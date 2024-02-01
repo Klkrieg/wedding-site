@@ -5,7 +5,7 @@
 
 .taped-image .img {
     display: block;
-    width: calc(100% - 100px);
+    width: 100%;
     height: auto;
     margin-inline: auto;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
@@ -43,12 +43,12 @@
 }
 
 .taped-image:is(.left, .left-right, .right) .first {
-    left: 50px;
+    left: 0;
     translate: -50% -50%;
 }
 
 .taped-image:is(.left, .left-right, .right) .last {
-    right: 50px;
+    right: 0;
     left: auto;
     translate: 50% -50%;
 }
