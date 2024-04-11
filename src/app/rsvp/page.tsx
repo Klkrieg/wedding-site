@@ -2,10 +2,13 @@
 import { Button, TextField } from '@mui/material'
 import { useState } from 'react'
 import styles from './page.module.css'
-import { ValidatorCodeInput } from '@/components/shared/ValidatorCodeInput';
+import OtpInput from '@/components/shared/OtpInput';
 
 export default function RSVP(){
     const [foundRecord, setFoundRecord] = useState(false);
+
+    const [otp, setOtp] = useState('');
+    const onChange = (value: string) => setOtp(value);
 
     return (
         <main className={styles.main}>
@@ -15,7 +18,7 @@ export default function RSVP(){
                 ? (
                     <form className={styles.form} action="" method="get">
                         <label htmlFor="key">please enter the 5 digit code on your invitation</label>
-                        <ValidatorCodeInput />
+                        <OtpInput value={otp} valueLength={5} onChange={onChange}/>
                         <Button type="submit" variant='outlined'>get my deets</Button>
                     </form>
                 ) : (

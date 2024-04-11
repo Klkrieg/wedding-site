@@ -1,0 +1,21 @@
+
+.otpGroup {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    max-width: 320px;
+    column-gap: 10px;
+    place-items: center;
+}
+
+.otpCell {
+    width: 100%;
+    height: 70px;
+    background-color: var(--light-blue-8a);
+    border: 1px solid var(--blue-8a);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+}
