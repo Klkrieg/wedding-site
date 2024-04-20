@@ -28,12 +28,32 @@ export default function OtpInput({ value, valueLength, onChange }: Props) {
   }, [value, valueLength])
   
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number)=>{
-    const targetValue = e.target.value;
+    let targetValue = e.target.value;
+    const isTargetValueDigit = RE_DIGIT.test(targetValue);
 
-    if (!RE_DIGIT.test(targetValue)) return;
+    if (!isTargetValueDigit && targetValue !== '') return;
+
+    targetValue = isTargetValueDigit ? targetValue : ' ';
 
     const newValue = value.substring(0, idx) + targetValue + value.substring(idx + 1);
-    console.log(newValue);
+    
+    onChange(newValue);
+
+    if(!isTargetValueDigit) return;
+
+    const nextElement = e.target.nextElementSibling as HTMLInputElement || null;
+
+    if (nextElement) nextElement.focus();
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) =>{
+    const target = e.target as HTMLInputElement;
+
+    if (e.key !== 'Backspace' || target.value !== '') return;
+
+    const previousElement = target.previousElementSibling as HTMLInputElement || null;
+
+    if (previousElement) previousElement.focus();
   }
 
   return (
@@ -48,6 +68,7 @@ export default function OtpInput({ value, valueLength, onChange }: Props) {
             maxLength={valueLength}
             className={styles.otpCell}
             value={digit}
+            onKeyDown={handleKeyDown}
             onChange={(e) => onInputChange(e, idx)}
           />
         ))}

@@ -34,6 +34,7 @@ export const GlobalContext = createContext<ContextType>({
 
 export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
     const [formSubmitted, setFormSubmitted] = useState(false); 
+    const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
     const [formError, setFormError] = useState(false);
     const storageKey = "formSubmitted";
 
@@ -81,12 +82,36 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
         localStorage.setItem(storageKey, JSON.stringify(false));
     }
 
+    const getPartyDetails = async (data: number = 13456) => {
+        const FIELDS = ['name', 'family_code', 'diet', 'rsvp']
+
+        const fieldsParam = FIELDS.join(',');
+        const apiUrl = process.env.NEXT_PUBLIC_AIRTABLEURL as string;
+
+        const headers = {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_KEY as string}`,
+        }
+
+        let result = await fetch(apiUrl, {
+                method: 'GET',
+                headers: headers,
+            })
+            .then(response => response.json())
+            .catch(error => {
+                console.log(error);
+                setFormError(true);
+            });
+
+            return result;
+    }
+
     return (
         <GlobalContext.Provider
             value={{
                 formSubmitted,
                 handleAirtableFormSubmit,
-                handleFormReset
+                handleFormReset,
+                getPartyDetails
             }}
         >
             <ThemeProvider theme={theme}>

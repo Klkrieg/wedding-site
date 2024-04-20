@@ -1,14 +1,19 @@
 "use client"
 import { Button, TextField } from '@mui/material'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from './page.module.css'
-import OtpInput from '@/components/shared/OtpInput';
+import OtpInput from '@/components/rsvp/OtpInput';
+import { RSVPForm } from '@/components/rsvp/RSVPForm';
+import { GlobalContext } from '@/contexts/global-content';
 
 export default function RSVP(){
-    const [foundRecord, setFoundRecord] = useState(false);
+    const context = useContext(GlobalContext)
+    const [foundRecord, setFoundRecord] = useState(true);
 
     const [otp, setOtp] = useState('');
     const onChange = (value: string) => setOtp(value);
+
+    const handleSubmit = () => {}
 
     return (
         <main className={styles.main}>
@@ -22,7 +27,7 @@ export default function RSVP(){
                         <Button type="submit" variant='outlined'>get my deets</Button>
                     </form>
                 ) : (
-                    <p>info</p>
+                    <RSVPForm familyCode={otp}/>
                 )
             }
         </main>
