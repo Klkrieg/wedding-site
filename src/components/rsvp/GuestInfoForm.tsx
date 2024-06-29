@@ -36,7 +36,7 @@ export const GuestInfoForm = ({ guest, postSubmit }: Props) => {
     const getsPlusOne = guest.fields.plus_one;
 
     const handleInputChange = (
-        e: ChangeEvent<HTMLInputElement>,
+        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
         fieldToChange: string,
     ) => {
         switch (fieldToChange) {
@@ -126,7 +126,7 @@ export const GuestInfoForm = ({ guest, postSubmit }: Props) => {
                             variant='outlined'
                             color='secondary'
                             onChange={(e) =>
-                                handleInputChange(e, "plusOneName")
+                                handleInputChange(e: any, "plusOneName")
                             }
                             value={plusOneName}
                         />
