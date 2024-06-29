@@ -1,109 +1,101 @@
-'use client'
+"use client";
 import { createContext, useEffect, useState } from "react";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import axios from "axios";
+import { RecordUpdateFields } from "@/constants/types";
+import { getDetails, updateDetails } from "../../utils/airtable";
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#883808',
-            light: '#babf62',
-            dark: '#0F3D1F'
+            main: "#883808",
+            light: "#babf62",
+            dark: "#0F3D1F",
         },
         secondary: {
-            main: '#3d6cbc',
-        }
+            main: "#3d6cbc",
+        },
     },
-    typography : {
-        fontFamily : "Courier Prime,"
-    }
+    typography: {
+        fontFamily: "Courier Prime,",
+    },
 });
 
 type ContextType = {
-	[prop: string]: any;
+    [prop: string]: any;
 };
 
 type AirtableRecordType = {
-    "Guest": string,
-    "Address": string
-}
+    Guest: string;
+    Address: string;
+};
 
 export const GlobalContext = createContext<ContextType>({
-    formSubmitted : false
+    formSubmitted: false,
 });
 
-export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
-    const [formSubmitted, setFormSubmitted] = useState(false); 
-    const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+export const GlobalContextProvider: React.FC<ContextType> = ({ children }) => {
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [formError, setFormError] = useState(false);
+    const [guestDataUpdated, setGuestDataUpdated] = useState(false);
+    const [guestData, setGuestData] = useState([]);
+    // const [currentFamilyCode, setCurrentFamilyCode] = useState("");
     const storageKey = "formSubmitted";
 
     useEffect(() => {
-		let isSubmitted = localStorage.getItem(storageKey);
+        let isSubmitted = localStorage.getItem(storageKey);
 
-		// populate the favorites if there are any in local storage
-		if (isSubmitted === "true") {
-			setFormSubmitted(true);
-            localStorage.setItem(storageKey, JSON.stringify(true))
-		} else {
+        // populate the favorites if there are any in local storage
+        if (isSubmitted === "true") {
+            setFormSubmitted(true);
+            localStorage.setItem(storageKey, JSON.stringify(true));
+        } else {
             setFormSubmitted(false);
         }
-	}, []);
+
+        getGuestDetails();
+    }, [guestDataUpdated]);
 
     const handleAirtableFormSubmit = async (fields: AirtableRecordType) => {
         const apiUrl = process.env.NEXT_PUBLIC_GUEST_TABLE_URL as string;
         setFormSubmitted(true);
         const data = {
-            fields: fields
-        }
+            fields: fields,
+        };
 
         const headers = {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_KEY as string}`,
-            'Content-Type': 'application/json',
-        }
-        
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_KEY as string}`,
+            "Content-Type": "application/json",
+        };
+
         let result = await fetch(apiUrl, {
-            method: 'POST',
+            method: "POST",
             headers: headers,
             body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
+        })
+            .then((response) => response.json())
+            .then((data) => {
                 localStorage.setItem(storageKey, JSON.stringify(true));
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
                 setFormError(true);
             });
-    }
+    };
 
     const handleFormReset = () => {
         setFormSubmitted(false);
         localStorage.setItem(storageKey, JSON.stringify(false));
-    }
+    };
 
-    const getPartyDetails = async (data: number = 13456) => {
-        const FIELDS = ['name', 'family_code', 'diet', 'rsvp']
+    const getGuestDetails = async () => {
+        let result = await getDetails();
+        setGuestData(result);
+    };
 
-        const fieldsParam = FIELDS.join(',');
-        const apiUrl = process.env.NEXT_PUBLIC_AIRTABLEURL as string;
-
-        const headers = {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_KEY as string}`,
-        }
-
-        let result = await fetch(apiUrl, {
-                method: 'GET',
-                headers: headers,
-            })
-            .then(response => response.json())
-            .catch(error => {
-                console.log(error);
-                setFormError(true);
-            });
-
-            return result;
-    }
+    const updateGuestDetails = async (data: RecordUpdateFields) => {
+        let result = await updateDetails(data);
+    };
 
     return (
         <GlobalContext.Provider
@@ -111,12 +103,16 @@ export const GlobalContextProvider: React.FC<ContextType> = ({children}) => {
                 formSubmitted,
                 handleAirtableFormSubmit,
                 handleFormReset,
-                getPartyDetails
+                getGuestDetails,
+                guestDataUpdated,
+                setGuestDataUpdated,
+                guestData,
+                updateGuestDetails,
+                // currentFamilyCode,
+                // setCurrentFamilyCode,
             }}
         >
-            <ThemeProvider theme={theme}>
-                {children}
-            </ThemeProvider>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </GlobalContext.Provider>
-    )
-}
+    );
+};

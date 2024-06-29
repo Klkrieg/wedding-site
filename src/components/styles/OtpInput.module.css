@@ -2,7 +2,7 @@
 .otpGroup {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 320px;
     column-gap: 10px;
     place-items: center;
