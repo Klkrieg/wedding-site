@@ -126,7 +126,7 @@ export const GuestInfoForm = ({ guest, postSubmit }: Props) => {
                             variant='outlined'
                             color='secondary'
                             onChange={(e) =>
-                                handleInputChange(e: any, "plusOneName")
+                                handleInputChange(e, "plusOneName")
                             }
                             value={plusOneName}
                         />
