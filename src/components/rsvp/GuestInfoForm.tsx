@@ -18,7 +18,7 @@ import { GlobalContext } from "@/contexts/global-content";
 
 export type Props = {
     guest: Record;
-    postSubmit: SetStateAction<String>;
+    postSubmit: any;
 };
 
 export const GuestInfoForm = ({ guest, postSubmit }: Props) => {
