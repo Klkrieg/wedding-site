@@ -6,8 +6,8 @@ import {
     responsiveFontSizes,
 } from "@mui/material/styles";
 import axios from "axios";
-import { CampingUpdateFields, RecordUpdateFields } from "@/constants/types";
-import { addCamper, getDetails, updateDetails } from "../../utils/airtable";
+import { RecordUpdateFields } from "@/constants/types";
+import { getDetails, updateDetails } from "../../utils/airtable";
 
 const theme = createTheme({
     palette: {
@@ -114,8 +114,6 @@ export const GlobalContextProvider: React.FC<ContextType> = ({ children }) => {
                 setGuestDataUpdated,
                 guestData,
                 updateGuestDetails,
-                // currentFamilyCode,
-                // setCurrentFamilyCode,
             }}
         >
             <ThemeProvider theme={theme}>{children}</ThemeProvider>

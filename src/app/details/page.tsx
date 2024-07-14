@@ -1,4 +1,4 @@
-import { Box, makeStyles, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { NavBar } from "@/components/nav/NavBar";
 import Link from "next/link";
 import { responseTheme } from "../../contexts/global-content";
