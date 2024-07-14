@@ -4,6 +4,7 @@ import { Poem } from "@/components/shared/Poem";
 import { TapedImage } from "@/components/shared/TapedImage";
 import { AirtableForm } from "@/components/shared/AirtableForm";
 import { Button, Typography } from "@mui/material";
+import { NavBar } from "@/components/nav/NavBar";
 
 export default function Home() {
     return (
@@ -33,6 +34,7 @@ export default function Home() {
                         </h4>
                     </div>
                 </div>
+                <NavBar />
             </header>
             <div className={styles.content}>
                 <div className={styles["content-top"]}>
@@ -54,7 +56,7 @@ export default function Home() {
                         </Typography>
                         <Button
                             variant='contained'
-                            color='secondary'
+                            color='primary'
                             href='/rsvp'
                             size='large'
                         >

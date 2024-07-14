@@ -15,15 +15,15 @@ export interface RecordFields {
     family_code: number;
     diet: string;
     rsvp: string;
-    plus_one: boolean
-    plus_one_diet?: string
-    plus_one_name?: string
+    plus_one: boolean;
+    plus_one_diet?: string;
+    plus_one_name?: string;
 }
 
 export interface RecordUpdateFields {
-    id: string,
-    diet: string,
-    rsvp: string,
-    plus_one_diet?: string
-    plus_one_name?: string
+    id: string;
+    diet: string;
+    rsvp: string;
+    plus_one_diet?: string;
+    plus_one_name?: string;
 }

@@ -1,4 +1,4 @@
-import { RecordUpdateFields } from "@/constants/types";
+import { CampingUpdateFields, RecordUpdateFields } from "@/constants/types";
 import axios from "axios";
 
 let headers = {

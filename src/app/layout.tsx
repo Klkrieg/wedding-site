@@ -1,32 +1,33 @@
+import "./globals.css";
+import type { Metadata } from "next";
+import { Courier_Prime } from "next/font/google";
+import { responseTheme } from "../contexts/global-content";
 
-import './globals.css';
-import type { Metadata } from 'next'
-import { Courier_Prime } from 'next/font/google'
-
-import { GlobalContextProvider } from '@/contexts/global-content';
+import { GlobalContextProvider } from "@/contexts/global-content";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 const inter = Courier_Prime({
-  weight: ['400',"700"],
-  subsets: ["latin"],
-  display: 'swap'
-})
+    weight: ["400", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'Sweet&Cheesy',
-  description: 'A website about our faces and our wedding.',
-}
+    title: "Sweet&Cheesy",
+    description: "A website about our faces and our wedding.",
+};
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode;
 }) {
-  return (
-    <GlobalContextProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          {children}
-        </body>
-      </html>
-    </GlobalContextProvider>
-  )
+    return (
+        <GlobalContextProvider>
+            <html lang='en' className={inter.className}>
+                <ThemeProvider theme={responseTheme}>
+                    <body>{children}</body>
+                </ThemeProvider>
+            </html>
+        </GlobalContextProvider>
+    );
 }

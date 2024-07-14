@@ -1,9 +1,13 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+    ThemeProvider,
+    createTheme,
+    responsiveFontSizes,
+} from "@mui/material/styles";
 import axios from "axios";
-import { RecordUpdateFields } from "@/constants/types";
-import { getDetails, updateDetails } from "../../utils/airtable";
+import { CampingUpdateFields, RecordUpdateFields } from "@/constants/types";
+import { addCamper, getDetails, updateDetails } from "../../utils/airtable";
 
 const theme = createTheme({
     palette: {
@@ -20,6 +24,8 @@ const theme = createTheme({
         fontFamily: "Courier Prime,",
     },
 });
+
+export let responseTheme = responsiveFontSizes(theme);
 
 type ContextType = {
     [prop: string]: any;

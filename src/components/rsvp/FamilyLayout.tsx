@@ -73,9 +73,6 @@ export const FamilyLayout = ({ family }: Props) => {
                     "you will be able to come back to this page in the future, \nshould you need to update any of your information"
                 }
             </Typography>
-            <Link href='/' marginBlockEnd={6}>
-                home page
-            </Link>
         </Box>
     );
 };
