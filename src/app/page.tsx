@@ -24,7 +24,7 @@ export default function Home() {
                     <h1 className={styles.title}>april + karson</h1>
                     <div className={styles.savethedate}>
                         <h2 className={styles["introText--title"]}>
-                            Save the Date!
+                            a wedding
                         </h2>
                         <h4 className={styles["introText--date"]}>
                             10.12.2024
