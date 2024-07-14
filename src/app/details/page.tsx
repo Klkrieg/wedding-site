@@ -30,8 +30,8 @@ export default function Details() {
                         component='p'
                         marginBlockEnd={2}
                     >
-                        the ceremony will be held under the canopy of two old
-                        live oak trees on the eason&apos;s property.
+                        the ceremony will be held under the canopy of old live
+                        oak trees on the eason&apos;s property.
                     </Typography>
                     <Typography
                         textAlign='left'
@@ -47,7 +47,7 @@ export default function Details() {
                         marginBlockEnd={2}
                     >
                         this property is another family member, it is only right
-                        that we commit wholly to one another inher presence.
+                        that we commit wholly to one another in her presence.
                     </Typography>
                 </Box>
                 <Box component={"section"} maxWidth={425}>
@@ -59,7 +59,7 @@ export default function Details() {
                         component='p'
                         marginBlockEnd={2}
                     >
-                        fischer dance hall is where sarell and ronnie had their
+                        fischer dance hall is where sharell and ronnie had their
                         wedding reception 31 years ago
                     </Typography>
                     <Typography
@@ -98,7 +98,7 @@ export default function Details() {
                         marginBlockEnd={2}
                     >
                         be prepared to:
-                        <br /> walk on a dirt patch
+                        <br /> walk on a dirt path
                         <br /> sit on a quilt
                         <br /> dance in an old barn
                         <br /> run around in the dark
@@ -140,7 +140,7 @@ export default function Details() {
                         marginBlockEnd={2}
                     >
                         this is a homemade wedding who knows her roots. this is
-                        a co-created experience made richer by every one showing
+                        a co-created experience made richer by everyone showing
                         up joyful and curious.
                     </Typography>
                 </Box>
@@ -168,8 +168,9 @@ export default function Details() {
                             this form
                         </Link>{" "}
                         if you want to camp on the eason&apos;s property. you
-                        will be pulled into prep, share meals with us as we set
-                        up, and get the serene hill country experience.
+                        will share meals with us as we set up, be pulled into
+                        some prep, and get the full serene hill country
+                        experience.
                     </Typography>
                     <Typography
                         textAlign='left'
@@ -178,7 +179,7 @@ export default function Details() {
                     >
                         if you are looking for an airbnb or hotel, dripping
                         springs is sprawling so make sure you map your lodging
-                        in relation to the venue
+                        in relation to the venue.
                     </Typography>
                 </Box>
                 <Box
