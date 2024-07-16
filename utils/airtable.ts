@@ -19,20 +19,17 @@ export const getDetails = async () => {
         .get(url, { headers })
         .then((response) => {
             const data = response.data.records;
-            // console.log(data);
             return data;
             // setGuestData(data);
         })
         .catch((error) => {
             console.error("Error fetching data:", error);
         });
-
     return result;
 };
 
 export const getSingleGuest = async (id: string) => {
     let url = apiUrl + `/${id}`;
-    console.log(url);
 
     const result = await axios
         .get(url, { headers })

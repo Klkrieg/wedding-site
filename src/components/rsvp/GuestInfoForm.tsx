@@ -24,7 +24,6 @@ export type Props = {
 export const GuestInfoForm = ({ guest, postSubmit }: Props) => {
     const context = useContext(GlobalContext);
 
-    console.log(guest);
     const [diet, setDiet] = useState(guest.fields.diet);
     const [rsvp, setRsvp] = useState(guest.fields.rsvp);
     const [plusOneDiet, setPlusOneDiet] = useState(

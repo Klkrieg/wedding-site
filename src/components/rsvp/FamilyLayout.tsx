@@ -24,10 +24,7 @@ export const FamilyLayout = ({ family }: Props) => {
     const [activeGuest, setActiveGuest] = useState<Record>();
 
     const handleGuestClick = async (e: { target: any }) => {
-        // let guest = family.find((g) => g.id === e.target.id);
-        console.log(e.target);
         let guest = await getSingleGuest(e.target.id);
-        // e.target.disabled = "true";
         setActiveGuest(guest);
     };
 

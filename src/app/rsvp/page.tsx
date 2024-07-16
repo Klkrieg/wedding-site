@@ -20,10 +20,13 @@ export default function RSVP() {
         let foundRecords = context.guestData.filter(
             (record: any) => record.fields.family_code === otp,
         );
-        if (foundRecords) {
+        if (foundRecords.length !== 0) {
             setFoundRecord(true);
             setFamily(foundRecords);
-        }
+        } else
+            alert(
+                "something went wrong. please contact karson/april with any questions.",
+            );
     };
 
     return (
@@ -46,7 +49,7 @@ export default function RSVP() {
                             method='get'
                             onSubmit={() => getRecordsByCode()}
                         >
-                            <label htmlFor='key'>
+                            <label>
                                 please enter the 5 digit code on your invitation
                             </label>
                             <OtpInput
