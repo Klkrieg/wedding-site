@@ -44,7 +44,7 @@ export const GlobalContextProvider: React.FC<ContextType> = ({ children }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formError, setFormError] = useState(false);
     const [guestDataUpdated, setGuestDataUpdated] = useState(false);
-    const [guestData, setGuestData] = useState([]);
+    const [guestData, setGuestData] = useState<any[]>([]);
     // const [currentFamilyCode, setCurrentFamilyCode] = useState("");
     const storageKey = "formSubmitted";
 
