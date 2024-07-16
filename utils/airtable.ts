@@ -15,16 +15,25 @@ export const getDetails = async () => {
     );
     let url = apiUrl + `?${fieldsParam}`;
 
-    const result = await axios
+    const res1 = await axios
         .get(url, { headers })
         .then((response) => {
-            const data = response.data.records;
-            return data;
+            return response.data;
             // setGuestData(data);
         })
         .catch((error) => {
             console.error("Error fetching data:", error);
         });
+    const res2 = await axios
+        .get(url + `&offset=${res1.offset}`, { headers })
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+        });
+
+    const result = [...res1.records, ...res2.records];
     return result;
 };
 
