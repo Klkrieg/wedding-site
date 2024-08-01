@@ -15,6 +15,9 @@ export const NavBar = () => {
             <Link href='/'>home</Link>
             <Link href='/details'>details</Link>
             <Link href='/rsvp'>rsvp</Link>
+            <Link href='https://www.myregistry.com/wedding-registry/april-eason-and-karson-krieg-flagstaff-az/4368443/giftlist'>
+                registry
+            </Link>
         </Box>
     );
 };
